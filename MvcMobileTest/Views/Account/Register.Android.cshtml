@@ -1,0 +1,94 @@
+﻿@model Practico.MvcMobile.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.Mobile.cshtml";
+    ViewBag.Title = "Register";
+}
+
+@section css
+{
+    @System.Web.Optimization.Styles.Render("~/Content/jquery-ui.css", "~/Content/jquery-ui.css")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/jquery-ui-1.10.3.js", "~/Scripts/jquery-ui-1.10.3.js")
+    @System.Web.Optimization.Scripts.Render("~/Scripts/IES_EditMobileJs.js", "~/Scripts/IES_RegisterMobileJs.js")
+}
+
+@using (Html.BeginForm())
+{
+    <div data-role="header">
+        <div data-role="button" class="ui-input-btn ui-btn ui-btn-left ui-icon-refresh ui-btn-icon-left ui-corner-all ui-shadow">
+            Cancel
+            <input id="cancel" type="reset" value="Cancelar" data-enhanced="true"/>
+        </div>
+        <h3><br /><br />@ViewBag.Title <img height="48px" width="48px" src="https://lh6.googleusercontent.com/-YMpOM6hAIQQ/AAAAAAAAAAI/AAAAAAAAAAA/8Ou1hRSHEzQ/s48-c-k-no/photo.jpg" /></h3>
+        <div data-role="button" class="ui-input-btn ui-btn ui-btn-right ui-icon-check ui-btn-icon-right ui-corner-all ui-shadow">
+            Register
+            <input id="register" type="submit" value="Registrar" data-enhanced="true"/>
+        </div>
+    </div>
+    
+    <div data-role="content">
+        <h2>Informatorio Evaluation System</h2>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Name)
+            @Html.TextBoxFor(x => x.Name)
+            @Html.ValidationMessageFor(x => x.Name)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Lastname)
+            @Html.TextBoxFor(x => x.Lastname)
+            @Html.ValidationMessageFor(x => x.Lastname)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.DNI)
+            @Html.TextBoxFor(x => x.DNI)
+            @Html.ValidationMessageFor(x => x.DNI)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Date)
+            @Html.TextBoxFor(x => x.Date, new { id = "datepicker"})
+            @Html.ValidationMessageFor(x => x.Date)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Studies)
+            @Html.DropDownListFor(x => x.Studies, new SelectList(Practico.MvcMobile.Controllers.AccountController.StudiesList))
+            @Html.ValidationMessageFor(x => x.Studies)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Email)
+            @Html.TextBoxFor(x => x.Email)
+            @Html.ValidationMessageFor(x => x.Email)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Phone)
+            @Html.TextBoxFor(x => x.Phone)
+            @Html.ValidationMessageFor(x => x.Phone)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.Province)
+            @Html.TextBoxFor(x => x.Province)
+            @Html.ValidationMessageFor(x => x.Province)
+        </div>
+        <div class="ui-field-contain">
+            @Html.LabelFor(x => x.City)
+            @Html.TextBoxFor(x => x.City)
+            @Html.ValidationMessageFor(x => x.City)
+        </div>
+        <div style="text-align:right">
+            Si ya tienes una cuenta, ve a @Html.ActionLink("Login", "Login", "Account", new { @class = "ui-btn ui-btn-inline ui-corner-all ui-shadow ui-icon-user ui-btn-icon-right" })
+        </div>
+        <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+            <div data-role="header" data-theme="a">
+                <h1 id="p-dialog-title">@ViewBag.ErrorTitle</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <h3 class="ui-title"></h3>
+                <p id="p-dialog-message">@ViewBag.ErrorMessage</p>
+                <div class="ui-input-btn ui-btn ui-corner-all ui-shadow">
+                    OK
+                    <input type="button" data-enhanced="true" data-transition="flow" value="OK" onclick="OK()"/>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+    
+

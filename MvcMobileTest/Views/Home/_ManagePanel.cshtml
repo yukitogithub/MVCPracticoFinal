@@ -1,0 +1,4 @@
+﻿<div class="divcontrolpanel">
+    <p>Bienvenido @Html.ActionLink(User.Identity.Name, "EditProfile", "Account", new { id = Model.ID }, new { title = "Hacé click en tu nombre de usuario para editar tu perfil" })
+    @Html.ActionLink("Salir", "Logout", "Account")</p>
+</div>

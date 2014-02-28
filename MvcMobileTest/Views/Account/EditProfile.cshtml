@@ -1,0 +1,137 @@
+﻿@model Practico.MvcMobile.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Editar Perfil";
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 5.0 Transitional//EN" "http://www.w3.org/TR/xhtml5/DTD/xhtml5-transitional.dtd">
+@section css
+{
+@System.Web.Optimization.Scripts.Render("~/Scripts/IES_EditJs.js", "~/Scripts/IES_EditJs.js")
+}
+
+<div class="divprincipal">
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <h3>Formulario de Edición de Perfil de Usuario</h3>
+        @Html.HiddenFor(x => x.ID)
+        <table id="table" style="width: 100%;">
+        <tr >
+            <td class="td1">
+                @Html.LabelFor(x => x.Name, new { @class = "label" })
+            </td>
+            <td class="td2">
+                @Html.TextBoxFor(x => x.Name, new { @class = "textbox", disabled = "true" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.Name)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Lastname, new { @class = "label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Lastname, new { @class = "textbox", disabled = "true" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.Lastname)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.DNI, new { @class = "label", style = "width:73px" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.DNI, new { disabled = "true" })
+                &nbsp
+                &nbsp
+                &nbsp
+                &nbsp
+                @Html.ValidationMessageFor(x => x.DNI)
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Date, new { @class = "label", style = "width:73px" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Date, new { disabled = "true" })
+                &nbsp
+                @Html.ValidationMessageFor(x => x.Date)
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Studies, new { @class = "label", style = "width:73px" })
+            </td>
+            <td>
+                @Html.DropDownListFor(x => x.Studies, new SelectList(Practico.MvcMobile.Controllers.AccountController.StudiesList), new { disabled = "true" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.Studies)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Email, new { @class = "label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Email, new {id="email", @class = "textbox" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.Email)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Phone, new { @class = "label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Phone, new {id="phone", @class = "textbox" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.Phone)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.Province, new { @class = "label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.Province, new { @class = "textbox", disabled = "true" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.Province)
+            </td>
+        </tr>
+        <tr>
+            <td>
+                @Html.LabelFor(x => x.City, new { @class = "label" })
+            </td>
+            <td>
+                @Html.TextBoxFor(x => x.City, new { @class = "textbox", disabled = "true" })
+            </td>
+            <td>
+                @Html.ValidationMessageFor(x => x.City)
+            </td>
+        </tr>
+    </table>
+        <div class="div-buttons">
+            <div class="buttons">
+            <input id="update" type="submit" value="Guardar"/>
+            <input id="cancel" type="button" value="Cancelar"/>
+            </div>
+        </div>
+}
+    <div id="dialog-message" title="">
+        <div id="p-dialog-title" hidden="true">@ViewBag.ErrorTitle</div>
+        <div id="p-dialog-message">@ViewBag.ErrorMessage</div>
+    </div>
+</div>

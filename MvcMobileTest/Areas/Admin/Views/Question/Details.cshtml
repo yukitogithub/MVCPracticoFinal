@@ -1,0 +1,46 @@
+﻿@model Practico.MvcMobile.Models.Question
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Question Details";
+} 
+    <fieldset>
+        <legend>Question Details</legend>
+    
+        <div class="display-field">
+            @Html.DisplayFor(model => model.question)
+        </div>
+
+        <div>
+            @Html.ActionLink("Edit Question", "EditQuestion", new { id=Model.ID })
+        </div>
+    </fieldset>
+    <table>
+        <tr>
+            <th>
+                Answer
+            </th>
+            <th>
+                Correcta/Incorrecta
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model.Answers) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.answer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type)
+            </td>
+            <td>
+                @Html.ActionLink("Edit Answer", "EditAnswer", new { id=item.ID })
+            </td>
+        </tr>
+    }
+
+    </table>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>

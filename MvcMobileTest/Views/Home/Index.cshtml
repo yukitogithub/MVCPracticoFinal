@@ -1,0 +1,47 @@
+﻿@model Practico.MvcMobile.Models.User
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Index";
+}
+
+@section css
+{
+    <noscript>
+        <meta http-equiv="refresh" content="0; ~/Home/NoJS"/>
+    </noscript>
+    <script type="text/javascript">
+        $(function () {
+            $(document).tooltip();
+        });
+    </script>
+    <style>
+        img
+        {
+            margin:auto;
+            display:block;
+        }
+    </style>
+}
+<div class="divprincipal">
+    <section id="ManagePanel">
+        @Html.Partial("_ManagePanel")
+    </section>
+    <div class="content">
+        <noscript>
+          <p class="pnegro">La página que estás viendo requiere para su funcionamiento el uso de JavaScript. Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
+        </noscript>
+        @if (Model.HasTakenTest == true)
+        {
+            <p class="pnegro">Ya realizaste el test!</p>
+            <img src="~/Content/images/Tick1-300x220new.png" alt="" />
+            <p class="pnegro">Puntuación: @ViewBag.TestResult/100</p>
+        }
+        else
+        {
+            <p class="pnegro">Todavía no hiciste el test...</p>
+            <img src="~/Content/images/test.gif" alt="" height=30% width=30%/>
+            <p class="pnegro">¿Estás listo para comenzar? @Html.ActionLink("Realizá el Test", "CreateTest", "Home", new { }, new { id = "MakeTest" })</p>
+        }
+    </div>
+</div>
+

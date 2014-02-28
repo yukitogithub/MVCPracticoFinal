@@ -1,0 +1,69 @@
+﻿@model Practico.MvcMobile.Areas.Admin.Models.NewQuestion
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "New Question";
+}  
+@using (Html.BeginForm()) 
+{
+    <fieldset>
+        <legend>New Question</legend>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.question)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.question)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.answer1)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.answer1)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Type1)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(x => x.Type1)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.answer2)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.answer2)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Type2)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(x => x.Type2)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.answer3)
+        </div>
+        <div class="editor-field">
+            @Html.TextBoxFor(x => x.answer3)
+        </div>
+    
+        <div class="editor-label">
+            @Html.LabelFor(x => x.Type3)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(x => x.Type3)
+        </div>
+    
+        <p>
+            <input id="submit" type="submit" value="Create" />
+        </p>
+    </fieldset>
+}
+    
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

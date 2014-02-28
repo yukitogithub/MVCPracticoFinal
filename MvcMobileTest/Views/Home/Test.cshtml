@@ -1,0 +1,68 @@
+﻿@model Practico.MvcMobile.Models.Test
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css
+{
+<script type="text/javascript">
+    var timeoutID;
+    var timerID;
+//    var time = $("#timeperanswer").attr("value");
+    var time = @System.Configuration.ConfigurationManager.AppSettings["TimePerAnswer"];
+    var number = time / 1000;
+</script>
+@System.Web.Optimization.Scripts.Render("~/Scripts/IES_TestJs.js", "~/Scripts/IES_TestJs.js")
+<noscript>
+    <meta http-equiv="refresh" content="0; ~/Home/NoJS"/>
+</noscript>
+}
+<div class="divprincipal">
+    <div id="reloj">
+        <b>Tiempo Restante: <label id="timerlbl"></label> segundos</b>
+    </div>
+    <br />
+    <div style="display: inherit;
+        vertical-align: middle;
+        width: 600px;
+        margin: auto;
+        text-align:center;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-top: 5px;
+        padding-bottom: 10px;
+        z-index:10;
+        position: relative;
+        background: rgb(82, 199, 82);">
+        <div class="divlogintransparente">
+        </div>
+        <p class="preg"><label id="actualquestionnumber2">@ViewBag.ActualQuestionNumber</label> Pregunta/s de @System.Configuration.ConfigurationManager.AppSettings["NumberOfQuest"] en Total</p>
+        <fieldset>
+            <hidden id="actualquestionnumber" value=@ViewBag.ActualQuestionNumber></hidden>
+            <hidden id="actualtime" value=@ViewBag.Time></hidden>
+            <hidden id="timeperanswer" value=@System.Configuration.ConfigurationManager.AppSettings["TimePerAnswer"]></hidden>
+            <p class="preg">Pregunta:</p>
+            <div id="questionandanswers">
+                <hidden id="questionid" value=@Model.Questions[0].ID></hidden>
+                <p id="question">@Model.Questions[0].question ?</p>
+                <div id="answers">
+                    @foreach (var answer in Session["Answers"] as List<Practico.MvcMobile.Models.Answer>)
+                    {
+                        <input name="answer" id=@answer.ID type="radio" value=@answer.ID /><label for=@answer.ID >@answer.answer</label>
+                        <br />
+                    }
+                </div>
+            </div>
+        </fieldset>
+        <p>
+            <input id="save" type="button" value="Guardar" name="save" onclick="Save()"/>
+            <input id="next" type="button" value="Siguiente" name="next" title="Continuá a la siguiente pregunta si no sabés la respuesta. Recordá que das por perdida la respuesta de esta pregunta" onclick="Next()"/>
+            <input id="end" type="button" value="Finalizar" name="end" title="Terminá con el test en cualquier momento. Recordá que das por perdida todas las respuestas siguientes" onclick="End()"/>
+        </p>
+    </div>
+</div>
+<div id="dialog-message" title="">
+    <p id="p-dialog-message"></p>
+    <p id="p-dialog-result"></p>
+</div>

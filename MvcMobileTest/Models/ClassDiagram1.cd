@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Practico.MvcMobile.Models.User">
+    <Position X="1.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAICAACAAgAAKAAAAAAQAAAEAAAADAAAAqgAAAAA=</HashCode>
+      <FileName>Models\User.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Test" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Practico.MvcMobile.Models.Question">
+    <Position X="7" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAQAAAAAQAAAAAAAAAA=</HashCode>
+      <FileName>Models\Question.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Answers" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Practico.MvcMobile.Models.Answer">
+    <Position X="9.75" Y="0.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAQAAAAAAAAI=</HashCode>
+      <FileName>Models\Answer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Practico.MvcMobile.Models.Test">
+    <Position X="4.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAwAAAAAAAAFAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Test.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="userAnswer" />
+      <Property Name="Questions" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="Practico.MvcMobile.Models.UserAnswer">
+    <Position X="4.25" Y="2.75" Width="1.5" />
+    <AssociationLine Name="Answer" Type="Practico.MvcMobile.Models.Answer" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="5.75" Y="3.625" />
+        <Point X="10.5" Y="3.625" />
+        <Point X="10.5" Y="2.238" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAEEAAAAgAAAAA=</HashCode>
+      <FileName>Models\UserAnswer.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Question" />
+      <Property Name="Answer" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

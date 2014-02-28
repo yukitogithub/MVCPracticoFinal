@@ -1,0 +1,49 @@
+﻿@model Practico.MvcMobile.Models.Login
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css
+{
+@System.Web.Optimization.Scripts.Render("~/Scripts/IES_EditMobileJs.js", "~/Scripts/IES_LoginMobileJs.js")
+}
+
+@using (Html.BeginForm("Login","Account"))
+{
+    <div data-role="header">
+        @Html.ActionLink("Registrate", "Register", "Account",null, new { @class = "ui-btn ui-corner-all ui-shadow ui-btn-left ui-icon-arrow-l ui-btn-icon-left" })
+        <h1>@ViewBag.Title <img height="48px" width="48px" src="http://mervingpastor.files.wordpress.com/2012/11/cropped-355088-new-microsoft-logo.jpg" /></h1>
+        <div data-role="button" class="ui-input-btn ui-btn ui-btn-right ui-icon-user ui-btn-icon-right ui-corner-all ui-shadow">
+            Login
+            <input id="login" type="submit" value="Entrar" data-enhanced="true" />
+        </div>
+    </div>
+
+    <div data-role="content">
+        <h2>Informatorio Evaluation System</h2>
+        <div>
+            @Html.LabelFor(x => x.Username, new { style = "text-align:center" })
+            @Html.TextBoxFor(x => x.Username, new { id = "username", type = "text" })
+            @Html.ValidationMessageFor(x => x.Username)
+        </div>
+        <div>
+            @Html.LabelFor(x => x.Password, new { style = "text-align:center" })
+            @Html.TextBoxFor(x => x.Password,new {id="password", type="password"})
+            @Html.ValidationMessageFor(x => x.Password)
+        </div>
+        <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+            <div data-role="header" data-theme="a">
+                <h1 id="p-dialog-title">@ViewBag.ErrorTitle</h1>
+            </div>
+            <div role="main" class="ui-content">
+                <h3 class="ui-title"></h3>
+                <p id="p-dialog-message">@ViewBag.ErrorMessage</p>
+                <div class="ui-input-btn ui-btn ui-corner-all ui-shadow">
+                    OK
+                    <input type="button" data-enhanced="true" data-transition="flow" value="OK" onclick="OK()"/>
+                </div>
+            </div>
+        </div>
+    </div>
+}

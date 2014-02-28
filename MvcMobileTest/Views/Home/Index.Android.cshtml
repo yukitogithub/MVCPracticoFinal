@@ -1,0 +1,31 @@
+﻿@model Practico.MvcMobile.Models.User
+@{
+    ViewBag.Title = "Index";
+    Layout = "../Shared/_Layout.Mobile.cshtml";
+}
+
+<div data-role="header">
+    @Html.ActionLink(User.Identity.Name.Remove(User.Identity.Name.IndexOf("@")), "EditProfile", "Account", new { id = Model.ID }, new { @class = "ui-btn ui-corner-all ui-shadow ui-btn-left ui-icon-arrow-l ui-btn-icon-left" })
+    <h1><br /><br />@ViewBag.Title <img height="48px" width="48px" src="https://lh6.googleusercontent.com/-YMpOM6hAIQQ/AAAAAAAAAAI/AAAAAAAAAAA/8Ou1hRSHEzQ/s48-c-k-no/photo.jpg" /></h1>
+    @Html.ActionLink("Logout", "Logout", "Account", new { }, new { @class = "ui-btn ui-corner-all ui-shadow ui-btn-right ui-icon-user ui-btn-icon-right" })
+</div>
+
+<div data-role="content">
+    <div class="ui-body ui-body-a ui-corner-all">
+        <h2>Informatorio Evaluation System</h2>
+        @if (Model.HasTakenTest == true)
+            {
+                <p>Ya realizaste el test!</p>
+                <img src="~/Content/images/Tick1-300x220new.png" alt="" />
+                <p>Puntuación: @ViewBag.TestResult/100</p>
+            }
+            else
+            {
+                <p>Todavía no hiciste el test...</p>
+                <img src="~/Content/images/test.gif" alt="" height=30% width=30%/>
+                <p>¿Estás listo para comenzar?</p>
+            }
+    </div>
+</div>
+
+

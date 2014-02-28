@@ -1,0 +1,46 @@
+﻿@model Practico.MvcMobile.Models.Login
+@{
+    ViewBag.Title = "Login";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+@section css
+{
+@System.Web.Optimization.Scripts.Render("~/Scripts/IES_LoginJs.js", "~/Scripts/IES_LoginJs.js")
+}
+<div class="divlogin">
+<div class="divlogintransparente color">
+</div>
+@using (Html.BeginForm())
+{
+    <noscript>
+      <p>La página que estás viendo requiere para su funcionamiento el uso de JavaScript. Si lo has deshabilitado intencionadamente, por favor vuelve a activarlo.</p>
+    </noscript>
+    <p>Ingresá tu nombre de usuario y contraseña</p>
+    <div>@Html.ValidationMessageFor(x => x.Username)</div>
+    <div class="div">
+        @Html.LabelFor(x => x.Username, new { @class = "label" })
+        &nbsp
+        @Html.TextBoxFor(x => x.Username, new { @class = "textbox" })
+    </div>
+    <br />
+    <div>@Html.ValidationMessageFor(x => x.Password)</div>
+    <div class="div">
+        @Html.LabelFor(x => x.Password, new { @class = "label" })
+        &nbsp
+        @Html.TextBoxFor(x => x.Password, new { @class = "textbox", type="password" })
+    </div>
+    <div class="div">
+        <p>¿Todavía no tenés tu cuenta? @Html.ActionLink("Registrate", "Register", "Account") </p>
+    </div>
+    <div class="div-buttons2">
+        <div class="buttons">
+            <input id="login" type="submit" value="Entrar"/>
+        </div>
+    </div>
+}
+    <div id="dialog-message" title="">
+        <div id="p-dialog-title" hidden="true">@ViewBag.ErrorTitle</div>
+        <div id="p-dialog-message">@ViewBag.ErrorMessage</div>
+    </div>
+</div>

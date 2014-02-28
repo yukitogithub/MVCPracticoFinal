@@ -1,0 +1,277 @@
+﻿.color
+{
+    background-color:#20a7e1;
+}
+.ui-dialog, .ui-dialog-title
+{
+    padding-left:6%;
+}
+.ui-dialog-buttonset, .ui-widget-content
+{
+    text-align:center;
+}
+.ui-dialog-buttonset
+{
+    margin: 0;
+    width: 90%;
+}
+body
+{
+    /*display: table;*/ 
+    height: 600px; 
+    width: 100%;
+    background-image: url(../Content/images/ui-bg_loop_25_000000_21x21.png);
+    background-color:rgba(0, 0, 0, 0.85);
+    background-repeat:repeat;
+    background-attachment:fixed;
+    margin: 0;
+}
+form
+{
+    width: 100%;
+}
+h2
+{
+    text-align: center;
+    position: relative;  
+    font-size: 50px;  
+    margin-top: 0;  
+    font-family: 'Myriad-Pro', 'Myriad', helvetica, arial, sans-serif;  
+    text-shadow: 2px 3px 3px #00aaff;   
+    -webkit-text-stroke: 1px;
+    color: #0078ae;  
+}
+a:link {color: #FFF;}
+a:visited {color: aqua;}
+a:hover {color: #222;}
+#MakeTest:link {color: #000;}
+#MakeTest:visited {color: #444;}
+#MakeTest:hover {color: #222;}
+.div
+{
+    width: 100%; 
+    display: flex;
+    zoom:1;
+}
+.label
+{
+    display:inline;
+    width: 75px;
+    color:White;
+}
+.textbox
+{
+    display:inline;
+    width: 98%;
+}
+.divprincipal
+{
+    padding-top:190px;
+    display: block;
+    height: 50%;
+    vertical-align: middle;
+    margin: auto;
+    width: 90%;
+}
+.divprincipal h3
+{
+    color: #c7e3a1;
+}
+.divcontrolpanel
+{
+    width: 333px;
+    right: 0px;
+    top:147px;
+    margin: 0px;
+    padding: 0px 10px 0px 10px;
+    position: fixed;
+    background-color: crimson; /*anteriormente cadetblue*/
+    border-bottom-left-radius: 300px;
+    text-align:right;
+}
+.divcontrolpanel h3
+{
+    color:Black;
+}
+.divcontrolpanel p
+{
+    text-align:right;
+    color:Black;
+}
+footer, #footer
+{
+    clear:both;
+    margin:0 auto;
+    padding:0;
+    letter-spacing:.1em;
+    text-align: left;
+    position:fixed;
+    left:0;
+    bottom:0;
+    height:45px;
+    width:100%;
+    opacity: 0.5;
+    border-top:1px solid #191616;
+    -moz-box-shadow: 1px 2px 11px #000;     
+    -webkit-box-shadow: 1px 2px 11px #000; 
+}
+footer p
+{
+    color:#c7e3a1;
+    text-align: center;
+}
+.div-buttons, .div-buttons2
+{
+    height: 70px;
+    width: 50%; 
+    margin: 0 auto;
+}
+.div-buttons
+{
+    margin-bottom: 50px;
+}
+.buttons
+{
+    width: 59%; 
+    margin: 0 auto;
+}
+.divlogin
+{
+    display: inherit;
+    top:240px;
+    /*height: 50%;*/
+    vertical-align: middle;
+    width: 300px;
+    margin: auto;
+    text-align:center;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 1px;
+    padding-bottom: 10px;
+    z-index:10;
+    position: relative;
+}
+.divlogintransparente
+{
+    position:absolute; 
+    z-index:-1; 
+    top:0; 
+    left:0; 
+    right:0; 
+    bottom:0; 
+    opacity:0.7;
+}
+.field-validation-error
+{
+    width:50%;
+    color: Red;
+}
+.ui-datepicker-trigger
+{
+    height:22px;
+    width:22px;
+}
+.td1
+{
+    width: 75px;
+}
+.td2
+{
+    width: 75%;
+}
+#table tr
+{
+    height: 50px;
+}
+p
+{
+    text-align:center;
+    color: white;
+    font-family: monospace;
+    /* font: menu; */
+    font-size: 16px;
+}
+.pnegro
+{
+    text-align:center;
+    color: black;
+    font-family: monospace;
+    /* font: menu; */
+    font-size: 16px;
+}
+.jumbotron 
+{
+    position:fixed;
+    right:0px;
+    left:0px;
+    margin-bottom: 30px;
+    font-size: 40px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    opacity: 0.8;
+}
+
+.jumbotron h1,
+.jumbotron .h1 {
+    line-height: 0;
+    color: #CEECCE;
+    text-align: center;
+}
+
+.jumbotron p {
+    line-height: 0;
+    margin-bottom:40px;
+}
+.jumbotron .container {
+    max-width: 100%;
+}
+.content
+{
+    width: 50%; 
+    margin: auto; 
+    background-color: azure; 
+    opacity: 0.9; 
+    margin-bottom: 40px; 
+    margin-top:20px; 
+    padding: 10px;
+}
+.content p
+{
+    font-weight:bolder;
+    font-size:large;
+}
+.ui-dialog .ui-dialog-titlebar-close
+{
+    display:none;
+}
+#question {
+    font-size: 22px;
+    font-family: sans-serif;
+    color: rgb(250, 250, 250);
+    text-shadow: 0px 0px 6px #000;
+}
+.preg {
+    color: black;
+    font-size: larger;
+    font-family: sans-serif;
+}
+#reloj {
+    font-size: larger;
+    font-family: monospace;
+    text-align: -webkit-center;
+    color: white;
+    background-color: crimson;
+    width: 160px;
+    border-top-right-radius: 50px;
+    border-bottom-right-radius: 50px;
+    margin-left: -90px;
+    margin-top: 120px;
+    padding: 25px;
+    padding-left: 70px;
+    position: absolute;
+}
+.myradiobutton
+{
+    width:100%;
+}

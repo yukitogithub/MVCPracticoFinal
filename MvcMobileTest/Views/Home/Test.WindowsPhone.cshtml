@@ -1,0 +1,80 @@
+﻿@model Practico.MvcMobile.Models.Test
+@{
+    ViewBag.Title = "Test";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section css
+{
+<script type="text/javascript">
+    var timeoutID;
+    var timerID;
+//    var time = $("#timeperanswer").attr("value");
+    var time = @System.Configuration.ConfigurationManager.AppSettings["TimePerAnswer"];
+    var number = time / 1000;
+</script>
+@System.Web.Optimization.Scripts.Render("~/Scripts/IES_TestMobileJs.js", "~/Scripts/IES_TestMobileJs.js")
+<noscript>
+    <meta http-equiv="refresh" content="0; ~/Home/NoJS"/>
+</noscript>
+}
+
+<div data-role="header" style="text-align:center;">
+    <div data-role="controlgroup" data-type="horizontal">
+        <div data-role="button" class="ui-input-btn ui-btn ui-icon-user ui-btn-icon-left ui-corner-all ui-shadow">
+            Finalizar
+            <input id="end" type="button" value="Finalizar" name="end" data-enhanced="true" title="Terminá con el test en cualquier momento. Recordá que das por perdida todas las respuestas siguientes" onclick="End()"/>
+        </div>
+        <div data-role="button" class="ui-input-btn ui-btn ui-corner-all ui-shadow">
+            Guardar
+            <input id="save" type="button" value="Guardar" data-enhanced="true" name="save" onclick="Save()"/>
+        </div>
+        <div data-role="button" class="ui-input-btn ui-btn ui-icon-user ui-btn-icon-right ui-corner-all ui-shadow">
+            Siguiente
+            <input id="next" type="button" value="Siguiente" name="next" data-enhanced="true" title="Continuá a la siguiente pregunta si no sabés la respuesta. Recordá que das por perdida la respuesta de esta pregunta" onclick="Next()"/>
+        </div>
+    </div>
+    <h1><br />@ViewBag.Title <img height="48px" width="48px" src="http://mervingpastor.files.wordpress.com/2012/11/cropped-355088-new-microsoft-logo.jpg" /></h1>
+</div>
+
+<div data-role="content">
+    <div class="ui-body ui-body-a ui-corner-all">
+        <h2>I.E.S.</h2>
+        <hidden id="actualquestionnumber" value=@ViewBag.ActualQuestionNumber></hidden>
+        <hidden id="message"></hidden>
+        <div id="relojmobile">
+            <b>Tiempo Restante: <label id="timerlbl"></label> segundos</b>
+        </div>
+        <hidden id="actualtime" value=@ViewBag.Time></hidden>
+        <hidden id="timeperanswer" value=@System.Configuration.ConfigurationManager.AppSettings["TimePerAnswer"]></hidden>
+        <p>Pregunta:</p>
+        <div id="questionandanswers">
+            <hidden id="questionid" value=@Model.Questions[0].ID></hidden>
+            <p id="question">@Model.Questions[0].question ?</p>
+            <div id="answers">
+                @foreach (var answer in Session["Answers"] as List<Practico.MvcMobile.Models.Answer>)
+                {
+                    <input name="answer" id=@answer.ID type="radio" value=@answer.ID />
+                    <label for=@answer.ID>@answer.answer</label>
+                }
+            </div>
+        </div>
+    </div>
+    <p id="testresult"></p>
+    <p><label id="actualquestionnumber2">@ViewBag.ActualQuestionNumber</label> Pregunta/s de @System.Configuration.ConfigurationManager.AppSettings["NumberOfQuest"] en Total</p>
+    
+    <div data-role="popup" id="popupDialog" data-overlay-theme="b" data-theme="b" data-dismissible="false" style="max-width:400px;">
+        <div data-role="header" data-theme="a">
+            <h1 id="p-dialog-title"></h1>
+        </div>
+        <div role="main" class="ui-content">
+            <h3 class="ui-title"></h3>
+            <p id="p-dialog-message"></p>
+            <p id="p-dialog-result"></p>
+            <div id="buttonok" class="ui-input-btn ui-btn ui-corner-all ui-shadow" hidden="hidden">
+                OK
+                <input type="button" data-enhanced="true" data-transition="flow" value="OK" onclick="OK()"/>
+            </div>
+        </div>
+    </div>
+</div>

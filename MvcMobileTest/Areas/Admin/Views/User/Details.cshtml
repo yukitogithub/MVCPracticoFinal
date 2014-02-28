@@ -1,0 +1,61 @@
+﻿@model Practico.MvcMobile.Models.Test
+
+@{
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Test Details";
+}
+    <fieldset>
+        <legend>Test</legend>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Date)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Date)
+        </div>
+    
+        <div class="display-label">
+             @Html.DisplayNameFor(model => model.Result)
+        </div>
+        <div class="display-field">
+            @Html.DisplayFor(model => model.Result)
+        </div>
+    </fieldset>
+    <table>
+        <tr>
+            <th>
+                <p>Question</p>
+            </th>
+            <th>
+                <p>Answer</p>
+            </th>
+            <th>
+                <p>Partial Result</p>
+            </th>
+        </tr>
+
+    @foreach (var item in Model.userAnswer) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Question.question)
+            </td>
+            <td>
+            @if (item.Answer == null)
+            {
+                <p>NULL</p>
+            }
+            else
+            {
+                @Html.DisplayFor(modelItem => item.Answer.answer)
+            }
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartialResult)
+            </td>
+        </tr>
+    }
+
+    </table>
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
