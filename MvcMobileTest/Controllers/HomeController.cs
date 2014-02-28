@@ -186,7 +186,7 @@ namespace Practico.MvcMobile.Controllers
                         //Extraigo del web.config el tiempo permitido para responder una pregunta
                         TimeSpan second = TimeSpan.FromMilliseconds(Convert.ToInt32(ConfigurationManager.AppSettings["TimePerAnswer"]));
                         //Añado unos segundos adicionales por las dudas. De todas maneras, son un poco de segundos nada más.
-                        second = second + TimeSpan.FromSeconds(13);
+                        second = second + TimeSpan.FromSeconds(45);
                         //Corrobor que la resta sea menor o igual al tiempo permitido
                         if (resta <= second && resta > TimeSpan.Zero)
                         {

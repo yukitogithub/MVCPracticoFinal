@@ -15,11 +15,13 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
         //
         // GET: /Admin/User/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(unitOfWork.UserRepository.All().ToList());
         }
 
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -34,6 +36,7 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
             return View(test);
         }
 
+        [Authorize]
         public ActionResult NullTest(int id)
         {
             try

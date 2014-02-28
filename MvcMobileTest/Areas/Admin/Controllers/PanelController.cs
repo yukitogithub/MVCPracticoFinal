@@ -11,6 +11,7 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
         //
         // GET: /Admin/Home/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View();

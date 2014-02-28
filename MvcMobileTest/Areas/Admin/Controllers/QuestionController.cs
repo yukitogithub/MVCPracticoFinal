@@ -17,11 +17,13 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
         //
         // GET: /Admin/Question/
 
+        [Authorize]
         public ActionResult Index()
         {
             return View(unitOfWork.QuestionRepository.All().ToList());
         }
 
+        [Authorize]
         public ActionResult Details(int? id)
         {
             if (id == null)
@@ -36,11 +38,13 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
             return View(question);
         }
 
+        [Authorize]
         public ActionResult Create()
         {
             return View();
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult Create(NewQuestion question)
         {
@@ -61,12 +65,14 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
             return View(question);
         }
 
+        [Authorize]
         public ActionResult EditQuestion(int id)
         {
             Question question = unitOfWork.QuestionRepository.GetByID(id);
             return View(question);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditQuestion(FormCollection form)
@@ -98,12 +104,14 @@ namespace Practico.MvcMobile.Areas.Admin.Controllers
             return View();
         }
 
+        [Authorize]
         public ActionResult EditAnswer(int id)
         {
             Answer answer = unitOfWork.AnswerRepository.GetByID(id);
             return View(answer);
         }
 
+        [Authorize]
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult EditAnswer(FormCollection form)

@@ -15,15 +15,15 @@
         <h2>Informatorio Evaluation System</h2>
         @if (Model.HasTakenTest == true)
             {
-                <p>Ya realizaste el test!</p>
-                <img src="~/Content/images/Tick1-300x220new.png" alt="" />
-                <p>Puntuación: @ViewBag.TestResult/100</p>
+                <p class="pnegro">Ya realizaste el test!</p>
+                <img src="~/Content/images/Tick1-300x220new.png" alt="" style="width:100%"/>
+                <p class="pnegro">Puntuación: @ViewBag.TestResult/100</p>
             }
             else
             {
-                <p>Todavía no hiciste el test...</p>
-                <img src="~/Content/images/test.gif" alt="" height=30% width=30%/>
-                <p>¿Estás listo para comenzar?</p>
+                <p class="pnegro">Todavía no hiciste el test...</p>
+                <img src="~/Content/images/test.gif" alt="" style="width:100%"/>
+                <p class="pnegro">¿Estás listo para comenzar? @Html.ActionLink("Realizá el Test", "CreateTest", "Home")</p>
             }
     </div>
 </div>

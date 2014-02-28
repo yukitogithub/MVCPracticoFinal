@@ -39,18 +39,17 @@
 
 <div data-role="content">
     <div class="ui-body ui-body-a ui-corner-all">
-        <h2>I.E.S.</h2>
         <hidden id="actualquestionnumber" value=@ViewBag.ActualQuestionNumber></hidden>
         <hidden id="message"></hidden>
-        <div id="relojmobile">
+        <div id="relojmobile" style="text-align:center;">
             <b>Tiempo Restante: <label id="timerlbl"></label> segundos</b>
         </div>
         <hidden id="actualtime" value=@ViewBag.Time></hidden>
         <hidden id="timeperanswer" value=@System.Configuration.ConfigurationManager.AppSettings["TimePerAnswer"]></hidden>
-        <p>Pregunta:</p>
+        <p class="pnegro">Pregunta:</p>
         <div id="questionandanswers">
             <hidden id="questionid" value=@Model.Questions[0].ID></hidden>
-            <p id="question">@Model.Questions[0].question ?</p>
+            <p id="question" style="color:Black;">@Model.Questions[0].question ?</p>
             <div id="answers">
                 @foreach (var answer in Session["Answers"] as List<Practico.MvcMobile.Models.Answer>)
                 {
@@ -69,8 +68,8 @@
         </div>
         <div role="main" class="ui-content">
             <h3 class="ui-title"></h3>
-            <p id="p-dialog-message"></p>
-            <p id="p-dialog-result"></p>
+            <p id="p-dialog-message" style="color:Black;"></p>
+            <p id="p-dialog-result" style="color:Black;"></p>
             <div id="buttonok" class="ui-input-btn ui-btn ui-corner-all ui-shadow" hidden="hidden">
                 OK
                 <input type="button" data-enhanced="true" data-transition="flow" value="OK" onclick="OK()"/>

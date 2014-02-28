@@ -1,4 +1,4 @@
-﻿var timeoutID
+﻿//var timeoutID
 $(document).ready(function () {
     $("#save").attr('disabled', "disabled");
     timeoutID = window.setTimeout(TimeOut, time);
@@ -34,7 +34,7 @@ function Timer() {
         timerID = window.setTimeout(Timer, 1000);
     }
     else {
-        TimeOut();
+        //TimeOut();
         window.clearTimeout(timerID);
     }
 };
@@ -48,8 +48,7 @@ function TimeOut() {
     //implemento acá un timeout por si no hace click en el botón ok en 5 segundos
     window.clearTimeout(timeoutID);
     window.setTimeout(function () {
-        $("#popupDialog").popup("close");
-        Next();
+        TiempoAgotado();
     }, 5000);
 };
 function Next() {
@@ -86,10 +85,11 @@ function End() {
     }
 };
 function Enviar(QuestionId, AnswerId, ActualQuestionNumber, Method) {
+    var ActualTime = $("#actualtime").attr("value");
     $.ajax({
         type: "POST",
         url: '../Home/Question',
-        data: "{'question':" + QuestionId + ", 'answer':" + AnswerId + ", 'actualquestionnumber':" + ActualQuestionNumber + ", 'actualtime': '" + ActualTime + ", 'method':" + Method + "}",
+        data: "{'question':" + QuestionId + ", 'answer':" + AnswerId + ", 'actualquestionnumber':" + ActualQuestionNumber + ", 'actualtime': '" + ActualTime + "', 'method':" + Method + "}",
         dataType: 'json',
         contentType: "application/json; charset=utf-8",
         success: function (data) {

@@ -125,7 +125,6 @@
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\PanelController.cs" />
     <Compile Include="Areas\Admin\Controllers\QuestionController.cs" />
-    <Compile Include="Areas\Admin\Controllers\TestController.cs" />
     <Compile Include="Areas\Admin\Controllers\UserController.cs" />
     <Compile Include="Areas\Admin\Models\NewQuestion.cs" />
     <Compile Include="Controllers\AccountController.cs" />
@@ -512,6 +511,8 @@
     <Content Include="Areas\Admin\Views\Question\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Shared\_Layout.cshtml" />
     <Content Include="Areas\Admin\Views\Panel\View.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Areas\Admin\Views\Account\Logout.cshtml" />
     <None Include="Content\images\icons-svg\action-black.svg" />
     <None Include="Content\images\icons-svg\action-white.svg" />
     <None Include="Content\images\icons-svg\alert-black.svg" />

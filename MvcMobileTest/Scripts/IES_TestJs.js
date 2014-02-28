@@ -50,7 +50,7 @@ function Timer() {
         timerID = window.setTimeout(Timer, 1000);
     }
     else {
-        TimeOut();
+        //TimeOut();
         window.clearTimeout(timerID);
     }
 };
